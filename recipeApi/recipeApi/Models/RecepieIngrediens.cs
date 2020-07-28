@@ -8,6 +8,6 @@ namespace recipeApi.Models
     public class RecepieIngrediens
     {
         public int ID { get; set; }
-        public int amount { get; set; }
+        public double amount { get; set; }
     }
 }
