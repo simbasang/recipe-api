@@ -8,7 +8,7 @@ namespace recipeApi.Repos
 {
     public interface IRecipeRepo
     {
-        IList<Recepies> GetAllRecepies();
-        Recepies GetRecepiesById();
+        Task<IList<Recepies>> GetAllRecepies();
+        Task<Recepies> GetRecepiesById();
     }
 }

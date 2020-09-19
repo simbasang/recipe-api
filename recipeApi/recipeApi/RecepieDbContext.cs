@@ -16,12 +16,9 @@ namespace recipeApi
         public DbSet<AmountType> AmountTypes { get; set; }
         public DbSet<RecepieIngrediens> RecepieIngrediens { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public RecepieDbContext(DbContextOptions<RecepieDbContext> opt) : base(opt)
         {
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
-            var config = builder.Build();
-            var defaultConnectionString = config.GetConnectionString("DefaultConnection");
-            optionsBuilder.UseSqlServer(defaultConnectionString);
+
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {

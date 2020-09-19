@@ -8,14 +8,22 @@ using recipeApi.Repos;
 
 namespace recipeApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1.0/[controller]")]
     [ApiController]
     public class RecipesController : Controller
     {
-        private readonly MockRecipeRepo _repo = new MockRecipeRepo();
+        private readonly IRecipeRepo _repo;
+
+        public RecipesController(IRecipeRepo repo)
+        {
+            _repo = repo;
+        }
+
+
         [HttpGet]
         public ActionResult<IList<Recepies>> GettAllRecepies()
         {
+
             var recepies = _repo.GetAllRecepies();
             return Ok(recepies);
         }
