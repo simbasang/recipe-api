@@ -21,9 +21,10 @@ namespace recipeApi.Repos
             return result;
         }
 
-        public async Task<Recepies> GetRecepiesById()
+        public async Task<Recepies> GetRecepiesById(int id)
         {
-            throw new NotImplementedException();
+            var result = await _context.Recepies.Where(x => x.ID == id).FirstOrDefaultAsync();
+            return result;
         }
     }
 }

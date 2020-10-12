@@ -29,9 +29,11 @@ namespace recipeApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Recepies> GetRecepiesById()
+        public ActionResult<Recepies> GetRecepiesById(int id)
         {
-            return null;
+
+            var recepie = _repo.GetRecepiesById(id);
+            return Ok(recepie);
         }
 
     }
